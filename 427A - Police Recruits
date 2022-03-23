@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+using namespace std;
+#define ll long long 
+
+
+
+int main()
+{
+	ll n, untreated = 0, recruits = 0;
+	cin >> n;
+	vector<ll> arr(n);
+	for (ll i = 0; i < n; i++) {
+		cin >> arr[i];
+		if (arr[i] > 0) {
+			recruits += arr[i];
+		}
+		if (arr[i] == -1) {
+			if (recruits == 0) {
+				untreated++;
+			}
+			if (recruits != 0) {
+				recruits -= 1;
+			}
+		}
+	}
+	cout << untreated;
+}
