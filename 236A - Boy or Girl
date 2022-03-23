@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+using namespace std;
+#define ll long long 
+
+
+
+int main()
+{
+	string s;
+	ll num{ 0 }, pass{0};
+	bool repeat = false;
+	cin >> s;
+	for (ll i = 0; i < s.size(); i++) {
+		for (ll j = 0; j < i; j++) {
+			if (s[i] == s[j]) { num++; }
+		}
+		if (num == 0) { pass++; }
+		num = 0;
+	}
+	
+	if (pass % 2 == 0) { cout << "CHAT WITH HER!"; }
+	else{ cout << "IGNORE HIM!"; }
+}
