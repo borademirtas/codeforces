@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+#include <cctype>
+using namespace std;
+#define ll long long 
+
+
+
+int main() {
+	string keyboard = "qwertyuiopasdfghjkl;zxcvbnm,./";
+	char side;
+	string s;
+	cin >> side >> s;
+	for (ll i = 0; i < s.size(); i++) {
+		for (ll j = 0; j < keyboard.size(); j++) {
+			if (s[i] == keyboard[j]) {
+				if (side == 'R') {
+					cout << keyboard[j - 1];
+				}
+				else { cout << keyboard[j + 1]; }
+			}
+		}
+	}
+}
