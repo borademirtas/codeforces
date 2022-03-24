@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+using namespace std;
+#define ll long long 
+
+
+
+int main(){
+	ll w, team = 0, one = 0, two = 0, three = 0;
+	cin >> w;
+	vector <ll> arr(w);
+	vector <ll> ones(w);
+	vector <ll> twos(w);
+	vector <ll> threes(w);
+	for (ll i = 0; i < w; i++) {
+		cin >> arr[i];
+		if (arr[i] == 1) { ones[one] = i + 1; one++; }
+		if (arr[i] == 2) { twos[two] = i + 1;  two++; }
+		if (arr[i] == 3) { threes[three] = i + 1; three++; }
+	}
+	team = min({ one, two, three });
+	std::cout << team << endl;
+	for (ll i = 0; i < team; i++) {
+	std::cout << ones[i] << " " << twos[i] << " " << threes[i] << "\n";
+	}
+}
+
