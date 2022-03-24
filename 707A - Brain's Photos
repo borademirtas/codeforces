@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+#include <cctype>
+using namespace std;
+#define ll long long 
+
+
+
+int main() {
+	ll n, m, x = 0;
+	cin >> n >> m;
+	vector<char> arr(n * m);
+	for (ll i = 0; i < n; i++) {
+		for (ll j = 0; j < m; j++) {
+			cin >> arr[x];
+			if (arr[x] == 'C' || arr[x] == 'Y' || arr[x] == 'M') { cout << "#Color"; return 0; }
+			x++;
+		}
+	}
+	cout << "#Black&White";
+
+}
