@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+using namespace std;
+#define ll long long 
+
+
+
+int main()
+{
+	ll n, t, k, d, time2 = 0, time = 0, total = 0, newtime = 0;
+	cin >> n >> t >> k >> d;
+	while (n > total) {
+		time++;
+		if (time % t == 0) { total += k; }
+		
+	}
+	total = 0;
+	while (n > total) {
+		time2++;
+		if (time2 > d) { newtime++; }
+		if (time2 % t == 0) { total += k; }
+		if (newtime % t == 0 && newtime != 0) { total += k; }
+
+	}
+	time == time2 ? cout << "NO": cout << "YES";
+
+}
+
