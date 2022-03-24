@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+using namespace std;
+#define ll long long 
+
+
+
+int main(){
+	ll n, low = 0, high = 0, num;
+	cin >> n;
+	vector<ll>town(n);
+	for (ll i = 0; i < n; i++) {
+		cin >> town[i];
+	}
+	for (ll i = 0; i < n; i++) {
+		if (i == 0) { std::cout << town[1] - town[0] << " " << town[n - 1] - town[0] << endl; }
+		else if (i == n - 1) { std::cout << town[n - 1] - town[n - 2] << " " << town[n - 1] - town[0]; }
+		else {
+			std::cout << min(abs(town[i] - town[i - 1]), abs(town[i] - town[i + 1])) << " " << max(abs(town[i] - town[0]), abs(town[n - 1] - town[i])) << endl;
+		}
+	}
+
+}
