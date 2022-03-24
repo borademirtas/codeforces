@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+using namespace std;
+#define ll long long 
+
+
+
+int main()
+{
+	string s;
+	cin >> s;
+	ll total = 0;
+	if (abs('a' - s[0]) > 13) {
+		total += 26 - abs('a' - s[0]);
+	}
+	else {
+		total += abs(abs('a' - s[0]));
+	}
+	for (ll i = 0; i < s.size() - 1; i++) {
+		if (abs(s[i] - s[i + 1]) > 13) {
+			total += 26 - abs(s[i] - s[i + 1]);
+		}
+		else { total += abs(s[i] - s[i + 1]); }
+	}
+	cout << total;
+}
