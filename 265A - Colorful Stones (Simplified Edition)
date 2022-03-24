@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+using namespace std;
+#define ll long long 
+
+
+
+int main()
+{
+	ll pos = 1;
+	string s, t;
+	cin >> s >> t;
+	for (ll i = 0; i < t.size(); i++) {
+		if (s[pos - 1] == t[i]) { pos++; }
+	}
+	cout << pos;
+}
