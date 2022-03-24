@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+#include <cctype>
+using namespace std;
+#define ll long long 
+
+
+
+int main() {
+	ll n, p, q, total = 0;
+	cin >> n >> p;
+	vector<ll> arr(n*2);
+	for (ll i = 0; i < p; i++) {
+		cin >> arr[i];
+	}
+	cin >> q;
+	for (ll i = p; i < p + q; i++) {
+		cin >> arr[i];
+	}
+	sort(arr.begin(), arr.end());
+	if (arr[0] != 0) { total++; }
+	for (ll i = 1; i < n * 2; i++) {
+		if (arr[i] != arr[i - 1]) { total++; }
+	}
+	total == n ? cout << "I become the guy.": cout << "Oh, my keyboard!";
+
+	
+	
+}
