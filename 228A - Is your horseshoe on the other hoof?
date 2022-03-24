@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+using namespace std;
+#define ll long long 
+
+
+
+int main()
+{
+	vector<ll> arr(4);
+	ll total = 0;
+	for (ll i = 0; i < 4; i++) {
+		cin >> arr[i];
+	}
+	sort(arr.begin(), arr.end());
+	for (ll i = 0; i < 3; i++) {
+		if (arr[i] == arr[i + 1]) { total++; }
+	}
+	cout << total;
+}
