@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+#include <cctype>
+using namespace std;
+#define ll long long 
+
+
+
+int main() {
+	ll n, total = 0, o_count = 0;
+	char x, o;
+	cin >> n;
+	vector<string> arr(n);
+	for (ll i = 0; i < n; i++) {
+		cin >> arr[i];
+		x = arr[0][0];
+		o = arr[0][1];
+		if (arr[i][i] != x) { total++; }
+		if (arr[i][n - 1 - i] != x) { total++; }
+		for (ll j = 0; j < n; j++) {
+			if (arr[i][j] == o) { o_count++; }
+		}
+	}
+	total == 0 && o_count == n * n - n * 2 + 1? cout << "YES" : cout << "NO";
+	
+}
