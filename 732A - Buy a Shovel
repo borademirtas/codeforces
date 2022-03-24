@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+using namespace std;
+#define ll long long 
+
+
+
+int main()
+{
+	ll k, r, mult = 1;
+	cin >> k >> r;
+	while (((mult * k) % 10) != r) {
+		if ((mult * k) % 10 == 0) { break; }
+		mult++;
+	}
+	cout << mult;
+}
