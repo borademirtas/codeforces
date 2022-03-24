@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+#include <algorithm>  
+#include <fstream>
+#include <string>
+using namespace std;
+#define ll long long 
+
+
+
+int main()
+{
+	ll n, x, d = 0;
+	cin >> n >> x;
+	vector<ll> arr(n);
+	vector<string> s(n);
+	for (ll i = 0; i < n; i++) {
+		cin >> s[i];
+		cin >> arr[i];
+		if (s[i] == "+") { x += arr[i]; }
+		if (s[i] == "-") {
+			if (arr[i] > x) { d++; }
+			else { x -= arr[i]; }
+		}
+	}
+	
+	cout << x << " " << d;
+}
+
