@@ -29,12 +29,13 @@ using namespace std;
 #define FIXED(A) cout << std::fixed << A << std::endl;
 
 map<char, char> chars;
-ll n, k, mn = 0;
+ll n, k;
 string s;
+char mn = 'a';
 
-void fix(ll x){
-    while(k != 0 && chars[s[x]] != 'a'){
-        chars[s[x]]--;
+void fix(char c){
+    while(k != 0 && chars[c] != 'a'){
+        chars[c]--;
         k--;
         for(ll i = 'y'; i >= 'a'; i--){
             if(chars[i] > chars[i + 1]){chars[i] = chars[i+1];}
@@ -44,13 +45,14 @@ void fix(ll x){
 
 void solve(){
     cin >> n >> k >> s;
+    mn = 'a';
     for(ll i = 'a'; i <= 'z'; i++){
         chars[i] = i;
     }
     for(ll i = 0; i < n; i++){
-        mn = max(chars[s[i]] - 'a' + mn - mn,  mn - mn);
-        if(mn > k && i != 0){fix(i - 1); fix(i); break;}
-        else if(mn > k && i == 0){fix(i); break;}
+        if(s[i] - 'a' <= k){mn = max(s[i] ,  mn);}
+        else if(i != 0){fix(mn); fix(s[i]); mn = 'a'; break;}
+        else if(i == 0){fix(s[i]); mn = 'a';}
         else{continue;}
     }
     if(k != 0){
