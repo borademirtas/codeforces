@@ -51,16 +51,16 @@ void solve(ll TC, ll TC2){
         sort(all(a[i]));
         reverse(all(a[i]));
     }
-    vll b(m);
+    vll b(n);
     ll ans = 0;
     for(ll i = 0; i < m; i++){
         ll sum = 0;
         for(ll j = 0; j < a[i].size(); j++){
             sum += a[i][j];
-            if(sum > 0 && j < m){b[j] += sum;}
+            if(sum > 0 && j < n){b[j] += sum;}
         }
     }
-    for(ll i = 0; i < m; i++){
+    for(ll i = 0; i < n; i++){
         ans = max(ans, b[i]);
     }
     cout << ans;
